@@ -91,12 +91,11 @@ const commonModule = () => {
         for (let i = ioIndex - 1; i < ioIndex + 2; i++) {
           const tSTep = elSteps[i];
           if (!tSTep) continue;
+          if (!isVisible(tSTep)) continue;
 
-          if (isVisible(tSTep)) {
-            _currentItem.inActivate();
-            _currentItem.setItem(imgItems[tSTep.dataset.index]);
-            _currentItem.activate();
-          }
+          _currentItem.inActivate();
+          _currentItem.setItem(imgItems[tSTep.dataset.index]);
+          _currentItem.activate();
         }
       });
     },
