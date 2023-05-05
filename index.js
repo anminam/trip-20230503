@@ -51,9 +51,20 @@ const commonModule = () => {
     );
   }
 
+  function handlerSizeChanged(e) {
+    updateYoutubeSize();
+  }
+
+  function updateYoutubeSize() {
+    const el = document.querySelector('.youtube');
+    const rect = el.getBoundingClientRect();
+    el.style.height = `${rect.width * 0.56}px`;
+  }
+
   return {
     init: () => {
       initImageDisable();
+      updateYoutubeSize();
       document.querySelector('.container-texts').innerHTML = getTextItems(
         jsonContent.list
       );
@@ -75,7 +86,7 @@ const commonModule = () => {
         elSteps[i].dataset.index = i;
         imgItems[i].dataset.index = i;
       }
-
+      window.addEventListener('resize', handlerSizeChanged);
       window.addEventListener('scroll', () => {
         for (let i = ioIndex - 1; i < ioIndex + 2; i++) {
           const tSTep = elSteps[i];
