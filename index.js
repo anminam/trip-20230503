@@ -1,3 +1,5 @@
+import jsonContent from './assets/index.json' assert { type: 'json' };
+
 const currentModule = (initEl) => {
   let _item = initEl;
   return {
@@ -5,9 +7,7 @@ const currentModule = (initEl) => {
       _item = el;
     },
     activate: () => {
-      // debugger;
       _item.classList.add('visible');
-      //console.log(_item.classList);
     },
     inActivate: () => {
       _item.classList.remove('visible');
@@ -31,9 +31,35 @@ const commonModule = () => {
     );
   }
 
+  function getTextItems(list, attr) {
+    return list.map((item) => getTextItem(item.msg)).join('');
+  }
+
+  function getTextItem(msg) {
+    return `<div class="step">` + `<p>${msg}</p>` + `</div>`;
+  }
+
+  function getImageItems(list) {
+    return list.map((item) => getImageItem(item.img)).join('');
+  }
+
+  function getImageItem(path) {
+    return (
+      `<div class="img-item">` +
+      `<img class="scene-img" src="images/${path}" alt="" />` +
+      `</div>`
+    );
+  }
+
   return {
     init: () => {
       initImageDisable();
+      document.querySelector('.container-texts').innerHTML = getTextItems(
+        jsonContent.list
+      );
+      document.querySelector('.container-images').innerHTML = getImageItems(
+        jsonContent.list
+      );
       const elSteps = document.querySelectorAll('.step');
       const imgItems = document.querySelectorAll('.img-item');
       _currentItem = currentModule(imgItems[0]);
