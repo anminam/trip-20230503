@@ -10,6 +10,8 @@ nav {
 html {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
+  background: black;
+  color: white;
 }
 body {
   margin: 0;
@@ -109,4 +111,12 @@ img.full {
 
 .none {
   opacity: 0;
+}
+
+.scroll-text {
+  color: black;
+}
+
+img {
+  opacity: 0.9;
 }
