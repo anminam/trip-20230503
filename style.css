@@ -113,6 +113,7 @@ h1 {
   opacity: 0;
   transition: 0.5s;
   will-change: opacity;
+  overflow: hidden;
 }
 .visible {
   opacity: 1;
@@ -276,5 +277,7 @@ nav {
 }
 
 .container-first-text {
-  margin-top: 10rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
