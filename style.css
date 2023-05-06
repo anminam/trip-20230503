@@ -154,8 +154,6 @@ h1 {
 }
 footer {
   margin-top: 10rem;
-}
-.global-footer {
   padding: 2rem 0;
   text-align: center;
 }
@@ -233,7 +231,7 @@ nav {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background-image: url(/assets/part1.4b213258.png);
+  background-image: url(/images/시작.jpeg);
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
@@ -278,9 +276,26 @@ nav {
   justify-content: center;
   align-items: center;
 }
+.container-title h1 {
+  opacity: 1;
+}
+.container-title h3 {
+  opacity: 0.9;
+}
 
 .container-first-text {
   height: 100vh;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+}
+
+.container-final-message {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-bottom {
+  margin-top: 12rem;
 }
