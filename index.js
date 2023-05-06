@@ -1,4 +1,5 @@
 import jsonContent from './assets/index.json' assert { type: 'json' };
+// import loadingModule from './progress.js';
 
 const currentModule = (initEl) => {
   let _item = initEl;
@@ -61,8 +62,42 @@ const commonModule = () => {
     el.style.height = `${rect.width * 0.56}px`;
   }
 
+  async function loadImages(list, callback) {
+    return new Promise(function (resolve, reject) {
+      let loadedCount = 0;
+
+      list.forEach((path) => {
+        const img = new Image();
+        img.onload = (e) => {
+          loadedCount++;
+          callback(loadedCount / list.length);
+          if (list.length === loadedCount) {
+            resolve(true);
+          }
+        };
+        img.src = path;
+      });
+    });
+  }
+
+  function imageCallback(percent) {
+    const value = Number((percent * 100).toFixed());
+    if (value === 100) {
+      // debugger;
+    }
+  }
+
+  function initLoadingModule() {
+    loadingModule({ id: 'spinner' });
+  }
+
   return {
-    init: () => {
+    init: async () => {
+      // initLoadingModule();
+      // await loadImages(
+      //   jsonContent.list.map((item) => `./images/${item.img}`),
+      //   imageCallback
+      // );
       initImageDisable();
       updateYoutubeSize();
       document.querySelector('.container-texts').innerHTML = getTextItems(
