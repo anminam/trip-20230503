@@ -231,7 +231,7 @@ nav {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  background-image: url(/images/시작.jpeg);
+  background-image: url(./images/시작.jpeg);
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
@@ -298,4 +298,20 @@ nav {
 }
 .container-bottom {
   margin-top: 12rem;
+}
+
+#bookmark-notion {
+  border: 1px dashed white;
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+#bookmark-notion .title {
+  font-size: 1.2rem;
+}
+#bookmark-notion .desc {
+  font-size: 0.8rem;
+  margin-top: 1em;
 }
