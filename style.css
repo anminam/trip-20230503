@@ -152,6 +152,9 @@ h1 {
   left: 30%;
   bottom: 30%;
 }
+footer {
+  margin-top: 10rem;
+}
 .global-footer {
   padding: 2rem 0;
   text-align: center;
