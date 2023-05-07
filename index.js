@@ -139,34 +139,3 @@ const commonModule = () => {
   };
 };
 commonModule().init();
-
-let handlers = Symbol('handlers');
-function makeObservable(target) {
-  target[handlers] = [];
-
-  target.observe = function (handler) {
-    this[handlers].push(handler);
-  };
-
-  return new Proxy(target, {
-    set(target, property, value, receiver) {
-      let success = Reflect.set(...arguments);
-      if (success) {
-        target.handler.forEach((handler) => handler(property, value));
-      }
-      return success;
-    },
-  });
-}
-
-let user = {};
-
-user = makeObservable(user);
-
-user.observe((key, value) => {
-  alert(`Set ${key}=${value}`);
-});
-
-setTimeout(() => {
-  user.age = '1';
-}, 2000);
